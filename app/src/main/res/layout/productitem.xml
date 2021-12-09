@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:id="@+id/productHeading"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/item_image"
+        android:layout_width="100dp"
+        android:layout_height="140dp"
+        android:scaleType="fitXY"
+        android:textSize="@dimen/element_text_size"
+        />
+
+    <TextView
+        android:id="@+id/item_name"
+        android:textSize="24sp"
+        tools:text="Name"
+        android:layout_width="0dp"
+        android:layout_weight="0.85"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/item_quantity"
+        android:textSize="24sp"
+        tools:text="Quantity"
+        android:layout_width="0dp"
+        android:layout_weight="0.85"
+        android:layout_height="wrap_content" />
+
+
+    <ImageButton
+        android:id="@+id/item_delete_btn"
+        android:layout_width="0dp"
+        android:layout_weight="0.15"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_delete"
+        />
+
+
+    <!--
+    <CheckBox
+        android:id="@+id/productChecked"
+        android:checked="false"
+        android:layout_width="0dp"
+        android:layout_weight="0.15"
+        android:layout_height="wrap_content" />
+        -->
+
+
+</LinearLayout>
