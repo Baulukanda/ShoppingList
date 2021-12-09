@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Baruani Lukanda/Documents/Mobile Application Development/ShoppingList project/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2203125" />
+        <entry key="..\:/Users/Baruani Lukanda/Documents/Mobile Application Development/ShoppingList project/app/src/main/res/layout/activity_main.xml" value="0.18432971014492755" />
+        <entry key="..\:/Users/Baruani Lukanda/Documents/Mobile Application Development/ShoppingList project/app/src/main/res/layout/content_main.xml" value="0.17980072463768115" />
+        <entry key="..\:/Users/Baruani Lukanda/Documents/Mobile Application Development/ShoppingList project/app/src/main/res/layout/productitem.xml" value="0.17980072463768115" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>

@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    //id 'kotlin-android-extensions'
+    id 'kotlin-parcelize'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -44,6 +47,12 @@ dependencies {
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
+
+    implementation 'com.google.firebase:firebase-firestore:24.0.0'
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+
+    // Import the Firebase BoM
+    implementation platform('com.google.firebase:firebase-bom:29.0.1')
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

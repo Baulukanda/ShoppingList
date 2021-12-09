@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">ShoppingList</string>
+    <string name="Shopping_list">Shopping list</string>
+    <string name="lbl_product_name">Name</string>
+    <string name="lbl_quantity">Qty</string>
+
+    <string name="add_product">Add</string>
+    <string name="sort_Name">Sort by Name</string>
+    <string name="sort_Quantity">Sort by Qty</string>
+    <string name="delete_product">Delete</string>
+    <string name="delete_all_products">Delete All</string>
+
+    <string name="confirmation">Confirmation</string>
+    <string name="areYouSure">Are you sure?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>
