@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         //Repository.addRealTimeListener()
-
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
         viewModel.getData().observe(this, Observer {
