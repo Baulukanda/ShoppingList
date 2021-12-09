@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         //Repository.addRealTimeListener()
-
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
         viewModel.getData().observe(this, Observer {
@@ -54,12 +53,6 @@ class MainActivity : AppCompatActivity() {
             adapter.notifyDataSetChanged();
         }*/
 
-        binding.content.deleteAllProductsBtn.setOnClickListener {
-            Repository.deleteAllProducts()
-            adapter.notifyDataSetChanged();
-        }
-
-
         binding.content.sortNameBtn.setOnClickListener {
             Repository.products.sortBy { it.name }
             adapter.notifyDataSetChanged()
@@ -70,11 +63,8 @@ class MainActivity : AppCompatActivity() {
             adapter.notifyDataSetChanged()
         }
 
-        /*
-        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }*/
+
+
     }
 
     fun updateUI(products : MutableList<Product>) {
@@ -93,28 +83,31 @@ class MainActivity : AppCompatActivity() {
     fun showDialog(v: View) {
         //showing our dialog.
 
-        val dialog = MyDialogFragment(::positiveClicked, ::negativeClick)
+        val dialog = MyDialogFragment(::yesBtnClicked, ::noBtnClick)
         //Here we show the dialog
         //The tag "MyFragement" is not important for us.
         dialog.show(supportFragmentManager, "myFragment")
     }
 
     //callback function from yes/no dialog - for yes choice
-    private fun positiveClicked() {
+    private fun yesBtnClicked() {
         val toast = Toast.makeText(
             this,
-            "positive button clicked", Toast.LENGTH_LONG
+            "yes button clicked", Toast.LENGTH_LONG
         )
+        Repository.deleteAllProducts()
+        adapter.notifyDataSetChanged();
         toast.show()
+
     }
 
 
     //callback function from yes/no dialog - for no choice
-    private fun negativeClick() {
+    private fun noBtnClick() {
         //Here we override the method and can now do something
         val toast = Toast.makeText(
             this,
-            "negative button clicked", Toast.LENGTH_LONG
+            "no button clicked", Toast.LENGTH_LONG
         )
         toast.show()
     }
