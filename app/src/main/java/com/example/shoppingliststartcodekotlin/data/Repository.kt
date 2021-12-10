@@ -21,7 +21,6 @@ object Repository {
     private lateinit var db: FirebaseFirestore
 
     fun getData(): MutableLiveData<MutableList<Product>> {
-        if (products.isEmpty()){
         db = Firebase.firestore
         db.collection("products").get()
             .addOnSuccessListener { result ->
@@ -36,7 +35,6 @@ object Repository {
             .addOnFailureListener { exception ->
                 Log.d("Repository", "Error getting documents: ", exception)
             }
-        }
         return productListener
     }
 
@@ -61,17 +59,17 @@ object Repository {
     }
 
     fun deleteProduct(index : Int) {
-        //products.removeAt(index)
+
         //productListener.value = products
 
         val product = products[index]
-        db.collection("books").document(product.id).delete().addOnSuccessListener {
+        db.collection("products").document(product.id).delete().addOnSuccessListener {
             Log.d("Snapshot","DocumentSnapshot with id: ${product.id} successfully deleted!")
-            products.removeAt(index) //removes it from the list
+            //products.removeAt(index) //removes it from the list
         }
             .addOnFailureListener { e -> Log.w("Error", "Error deleting document", e) }
+        products.removeAt(index)
         productListener.value = products
-
     }
 
     fun deleteAllProducts(){
@@ -93,28 +91,4 @@ object Repository {
         db.collection("products").document(product.id)
             .update("name", name, "quantity", quantity, "img",img)
     }
-
-    /*
-    // Listens to any changes continually - to synchronize
-    fun addRealTimeListener()
-    {
-        val db = Firebase.firestore
-        val docRef = db.collection("products")
-        docRef.addSnapshotListener { snapshot, e ->
-            if (e != null) {  //any errors
-                Log.d("Repository", "Listen failed.", e)
-                return@addSnapshotListener
-            }
-            products.clear() //to avoid duplicates.
-            for (document in snapshot?.documents!!) { //add all products to the list
-                Log.d("Repository_snapshotlist", "${document.id} => ${document.data}")
-                val product = document.toObject<Product>()!!
-                product.id = document.id
-                products.add(product)
-            }
-            productListener.value = products
-        }
-    }*/
-
-
 }

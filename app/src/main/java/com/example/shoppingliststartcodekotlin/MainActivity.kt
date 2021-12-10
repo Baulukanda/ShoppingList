@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -14,6 +16,7 @@ import com.example.shoppingliststartcodekotlin.adapters.ProductAdapter
 import com.example.shoppingliststartcodekotlin.data.Repository
 import com.example.shoppingliststartcodekotlin.models.Product
 import com.example.shoppingliststartcodekotlin.databinding.ActivityMainBinding
+import com.google.firebase.firestore.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,7 +33,6 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        //Repository.addRealTimeListener()
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
         viewModel.getData().observe(this, Observer {
@@ -47,12 +49,6 @@ class MainActivity : AppCompatActivity() {
             adapter.notifyDataSetChanged();
         }
 
-        /*
-        binding.content.btnDeleteProduct.setOnClickListener {
-            Repository.deleteProduct();
-            adapter.notifyDataSetChanged();
-        }*/
-
         binding.content.sortNameBtn.setOnClickListener {
             Repository.products.sortBy { it.name }
             adapter.notifyDataSetChanged()
@@ -62,9 +58,6 @@ class MainActivity : AppCompatActivity() {
             Repository.products.sortByDescending { it.quantity }
             adapter.notifyDataSetChanged()
         }
-
-
-
     }
 
     fun updateUI(products : MutableList<Product>) {
@@ -101,7 +94,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
     //callback function from yes/no dialog - for no choice
     private fun noBtnClick() {
         //Here we override the method and can now do something
@@ -111,4 +103,17 @@ class MainActivity : AppCompatActivity() {
         )
         toast.show()
     }
+/*
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        val id = item.itemId
+        return if (id == R.id.action_settings) {
+            true
+        } else super.onOptionsItemSelected(item)
+    }*/
 }
