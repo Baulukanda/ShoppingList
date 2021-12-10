@@ -38,6 +38,7 @@ object Repository {
         return productListener
     }
 
+    /*
     fun createTestData()
     {
         //add some products to the products list - for testing purposes
@@ -46,7 +47,7 @@ object Repository {
         products.add(Product(name="Beans",quantity = 4, img="beans.gif"))
         products.add(Product(name="Apple", quantity = 10, img="apple.gif"))
         products.add(Product(name="Milk", quantity = 1, img="milk.gif"))
-    }
+    }*/
 
     fun addProduct(product : Product){
         //products.add(product);
@@ -89,6 +90,6 @@ object Repository {
 
     fun updateProduct(product: Product, name: String, quantity: String, img: String) {
         db.collection("products").document(product.id)
-            .update("name", name, "quantity", quantity, "img",img)
+            .update("name", name, "quantity", quantity)
     }
 }
