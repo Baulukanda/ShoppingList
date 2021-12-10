@@ -23,6 +23,7 @@ class ProductAdapter(var products: MutableList<Product>) :
     override fun onBindViewHolder(holder: ProductAdapter.ViewHolder, position: Int) {
         holder.itemName.text = products[position].name
         holder.itemQuantity.text = products[position].quantity.toString()
+        //holder.itemImage.setImageResource(products[position].img)
     }
 
     override fun getItemCount(): Int {
